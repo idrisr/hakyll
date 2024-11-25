@@ -1,0 +1,19 @@
+session_name: hakyll
+windows:
+  - window_name: haskell
+    layout: main-vertical
+    panes:
+      - shell_command:
+        - cd /home/hippoid/fun/hakyll/
+    options:
+      main-pane-width: 80
+
+  - window_name: latex
+    layout: tiled
+    shell_command_before:
+      - cd /home/hippoid/fun/hakyll/doc && vim ./00-main.tex
+
+  - window_name: server
+    layout: tiled
+    shell_command_before:
+      - cd /home/hippoid/fun/hakyll/notes/

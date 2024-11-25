@@ -1,0 +1,3 @@
+# Exclude these environments from syntax checking
+VerbEnvir { haskell pgfpicture tikzpicture prooftree }
+Silent { \gralt }

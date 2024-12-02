@@ -5,28 +5,16 @@
 \maketitle{}
 
 \tcblistof[\section]{definition}{Definitions}
+\tableofcontents
 
-\section{Conceptual}
-\begin{intuition}{Hakyll}{}
-	It's all about taking a directory $D_1$ and its files, and then
-	transforming them to another directory $D_2$ plus rules $R$ about how to
-	route web requests so that they line up with the static web site in $D_2$.
-\end{intuition}
-
-\begin{definition}{Compiler}{}
-	It defines the fundamental Compiler type and primitive Compilers as well as
-	several variants on load, which allow you to bring together multiple
-	resources to create a single output.
-\end{definition}
-
-\begin{definition}{Routes\index{route}}{}
-	Specify where compiled items should go in the output site---used for
-	determining the output file. For example, you probably want to write the
-	processed contents of \bash{contact.markdown} to \bash{_site/contact.html}
-	and not \bash{_site/contact.markdown}.
-	\begin{haskell}{}
-route :: FilePath -> FilePath -- pseudo code
-\end{haskell}
+\section{Major Types}
+\begin{definition}{Monad}{}
+	\begin{multicols}{2}
+		\begin{enumerate}[label = {(\arabic*)}]
+			\item Compiler
+			\item Rules
+		\end{enumerate}
+	\end{multicols}
 \end{definition}
 
 \begin{definition}{Rules\index{rule}}{}
@@ -44,8 +32,8 @@ route :: FilePath -> FilePath -- pseudo code
 	\end{enumerate}
 
 	\begin{enumerate}[label = {(\arabic*)}]
-		\item Source files (like Markdown files) to process (collected with
-		      e.g.\@match or create).
+		\item Source files (like Markdown files) to process, collected with e.g.
+		      \hask{match} or \hask{create}.
 		\item Compilation steps (like Markdown to HTML) to transform files'
 		      content to some output content (steps are collected within Compiler
 		      and executed with compile).
@@ -56,9 +44,53 @@ route :: FilePath -> FilePath -- pseudo code
 	\end{enumerate}
 \end{definition}
 
+\begin{definition}{Compiler\index{Compiler}}{}
+	It defines the fundamental Compiler type and primitive Compilers as well as
+	several variants on load, which allow you to bring together multiple
+	resources to create a single output.
+\end{definition}
+
 \begin{intuition}{Rules\index{rule}}{}
+
 	A rule is basically a function that is waiting to be applied to an item.
 	You introduce this rule ``function'' by combining a item and a compiler.
+\end{intuition}
+
+\begin{definition}{Monoid}{}
+	\begin{multicols}{2}
+		\begin{enumerate}[label = {(\arabic*)}]
+			\item Routes
+			\item Context
+		\end{enumerate}
+	\end{multicols}
+\end{definition}
+
+\begin{definition}{Context\index{Context}}{}
+	You can’t do much with a Template if you don’t have a Context: this module
+	provides some predefined Contexts and the tools to build your own.
+\end{definition}
+
+\begin{definition}{Routes\index{route}}{}
+	Part of the \hask{Rules} processing pipeline.
+	Specify where compiled items should go in the output site---used for
+	determining the output file. For example, you probably want to write the
+	processed contents of \bash{contact.markdown} to \bash{_site/contact.html}
+	and not \bash{_site/contact.markdown}.
+\end{definition}
+
+\begin{intuition}{Routes}{}
+	\begin{verbatim}
+mapping between a specific url pattern
+corresponding code that should be executed to
+handle requests matching that pattern
+	\end{verbatim}
+\end{intuition}
+
+\section{Conceptual}
+\begin{intuition}{Hakyll}{}
+	It's all about taking a directory $D_1$ and its files, and then
+	transforming them to another directory $D_2$ plus rules $R$ about how to
+	route web requests so that they line up with the static web site in $D_2$.
 \end{intuition}
 
 \begin{definition}{Store\index{store}}{}
@@ -73,11 +105,6 @@ route :: FilePath -> FilePath -- pseudo code
 \begin{definition}{Template\index{template}}{}
 	Templates are tools to convert items into a string. They are perfectly
 	suited for laying out your site.
-\end{definition}
-
-\begin{definition}{Template.Context}{}
-	You can’t do much with a Template if you don’t have a Context: this module
-	provides some predefined Contexts and the tools to build your own.
 \end{definition}
 
 \begin{definition}{Main}{}

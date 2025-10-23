@@ -1,2 +1,0 @@
-export LATEXINDENT_CONFIG="/home/hippoid/fun/flake-templates/templates/latex/indentconfig.yaml"
-use flake . --impure

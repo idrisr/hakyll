@@ -1,0 +1,11 @@
+modifyLineBreaks:
+  textWrapOptions:
+    columns: 80
+
+defaultIndent: "  "
+verbatimEnvironments:
+  haskell: 1
+  shell: 1
+
+lookForAlignDelims:
+  tikzcd: 1

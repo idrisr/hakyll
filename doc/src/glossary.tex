@@ -1,0 +1,82 @@
+\newglossaryentry{route}{
+  name={route},
+  description={
+      A URL pattern in an application that maps incoming requests to the logic
+      or resource that handles them. Defines how a request is processed and what
+      response is returned.
+    }
+}
+
+
+\newglossaryentry{endpoint}{
+  name={endpoint},
+  description={
+      A specific address in an API defined by an HTTP method and a route. It
+      represents one actionable interface for clients, such as \texttt{GET
+        /users} or \texttt{POST /login}
+    }
+}
+
+\newglossaryentry{static site}{
+  name={static site},
+  description={
+      A website whose server responds only to GET requests and serves prebuilt
+      files directly from storage. No code execution, templating, or dynamic
+      process runs per request; the response depends solely on the requested
+      path
+    }
+}
+
+\newglossaryentry{page}{
+  name={page},
+  description={
+      A single document served at a specific URL on the web, typically an HTML
+      response rendered by a browser. A page represents one logical unit of
+      content and may include additional assets such as CSS, JavaScript, and
+      images. Provides functions for rendering your pages using pandoc, with a
+      varying degree of high-levelness.
+    }
+}
+
+\newglossaryentry{item}{
+  name={item},
+  description={
+      An item is a combination of some content and its Identifier. This way, we
+      can still use the Identifier to access metadata
+    }
+}
+
+\newglossaryentry{store}{
+  name={store},
+  description={
+      A store for storing and retreiving items
+    }
+}
+
+\newglossaryentry{identifier}{
+  name={identifier},
+  description={
+      A key data type to identify a compiled Item in the Store. Conceptually,
+      it's a combination of a file path and a version name. The version is used
+      only when a file is compiled within a rule using the version wrapper
+      function (the same source file can be compiled into several items in the
+      store, so the version exists to distinguish them). Use functions like
+      fromFilePath, setVersion, getMatches to build an Identifier
+    }
+}
+
+\newglossaryentry{template}{
+  name={template},
+  description={
+      Templates are tools to convert items into a string. They are perfectly
+      suited for laying out your site
+    }
+}
+
+\newglossaryentry{rule}{
+  name={rule},
+  description={
+      A rule is basically a function that is waiting to be applied to an item.
+      You introduce this rule ``function'' by combining a item and a compiler.
+    }
+}

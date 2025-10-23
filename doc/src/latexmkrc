@@ -1,0 +1,17 @@
+# Directory setup
+$aux_dir  = 'build';     # Auxiliary files
+$out_dir  = 'build';     # Output files (PDF, etc.)
+
+# Use pdflatex with shell escape (required for glossaries with makeindex)
+$pdflatex = 'pdflatex -interaction=nonstopmode -shell-escape -output-directory=build';
+
+$pdf_mode = 1;           # Compile to PDF
+
+# Automatically run makeglossaries
+add_cus_dep('glo', 'gls', 0, 'makeglossaries');
+$clean_ext .= ' %R.gls %R.glo %R.glg %R.acn %R.acr %R.alg %R.ist %R.xdy';
+
+sub makeglossaries {
+    my ($base_name, $path) = fileparse( $_[0] );
+    system("makeglossaries -d build $base_name");
+}

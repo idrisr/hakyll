@@ -1,38 +1,7 @@
-.direnv/
-dist-newstyle/
-dist
-dist-*
-cabal-dev
-*.o
-*.hi
-*.chi
-*.chs.h
-*.dyn_o
-*.dyn_hi
-.hpc
-.hsenv
-.cabal-sandbox/
-cabal.sandbox.config
-*.prof
-*.aux
-*.hp
-*.eventlog
-.stack-work/
-result
-.pre-commit-config.yaml
-mywite/_cache
-mysite/_cache
-mysite/_site
-.devenv
-_cache
-mysite02/_site
-notes/_site
-# Devenv
-.devenv*
-devenv.local.nix
-
-# direnv
 .direnv
-
-# pre-commit
-.pre-commit-config.yaml
+.devenv
+.envrc
+result
+session.yaml
+doc/.envrc
+.envrc
